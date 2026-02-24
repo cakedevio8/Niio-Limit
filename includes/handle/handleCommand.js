@@ -109,18 +109,47 @@ module.exports = function ({ api, models, Users, Threads, Currencies }) {
             if (thu == 'Saturday') thu = 'Thứ 7'
             for (const cmd of commandValues) allCommandName.push(cmd);
             const checker = stringSimilarity.findBestMatch(commandName, allCommandName);
-            if (checker.bestMatch.rating >= 0.5) {
-                command = client.commands.get(checker.bestMatch.target);
-            } else {
-                return api.sendMessage({
-				body: `👤 ${name} !\n🔎 Lệnh không tồn tại!\n📌 lệnh gần giống là " ${checker.bestMatch.target} "\n📝 Thính: ${randomThinh}\n────────────────────\n⏳ Uptime: ${h}:${p}:${s}\n⏱ ${thu} || ${gio}`,
-					attachment: global.anime.splice(0, 1)
-                }, event.threadID, async (err, info) => {
-					await new Promise(resolve => setTimeout(resolve, 60 * 1000));
-					return api.unsendMessage(info.messageID);
-					}, event.messageID);
-            }
-        }
+            if (!command) {
+
+  if (!command) {
+  const mention = [{
+    tag: threadInf.userInfo.find(u => u.id == senderID)?.name || "Baby",
+    id: senderID
+  }];
+
+  const thinhList = [
+    "Sai thì sửa, đừng sửa anh nha 💘",
+    "Gõ sai lệnh nhưng gõ đúng tim anh rồi đó 😳",
+    "Sai lệnh nhưng vẫn đáng yêu nha 🫶",
+    "Nhập sai lệnh, nhập tim anh chưa 😏",
+    "Sai lệnh phạt một cái ôm 😚",
+    "Bấm nhầm lệnh chứ đừng nhầm người nha 💞",
+    "Sai một chút thôi nhưng yêu anh nhiều chút 💕",
+    "Lệnh sai nhưng vibe đúng bài đó 💓",
+    "Sai lệnh rồi đó baby~ nhưng anh vẫn thương 😌",
+    "Gõ lại đi nè, anh đợi 💗"
+	"Thính cái cặk bò"
+  ];
+
+  const randomThinh = thinhList[Math.floor(Math.random() * thinhList.length)];
+
+  return api.sendMessage({
+    body:
+`╔══════════════════════╗
+        ⚠️ 𝗦𝗔𝗜 𝗟𝗘̣̂𝗡𝗛 ⚠️
+╠══════════════════════╣
+👤 ${mention[0].tag}
+
+❌ Baby gõ sai lệnh rồi nè~
+✨ Lệnh gần giống: ${checker.bestMatch.target}
+
+💌 Thính:
+${randomThinh}
+╚══════════════════════╝`,
+    mentions: mention,
+    attachment: fs.createReadStream(videoPath)
+  }, threadID, messageID);
+  }
 
         let path = __dirname + '/../../modules/data/commands-banned.json';
         let data = {};
@@ -262,4 +291,4 @@ module.exports = function ({ api, models, Users, Threads, Currencies }) {
             }, messageID);
         }
     }
-}
+					}
