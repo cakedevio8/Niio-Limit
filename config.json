@@ -3,18 +3,18 @@
     "notiGroup": true,
     "MAINTENANCE": false,
     "allowInbox": false,
-    "BOTNAME": " 💢 ",
-    "AMDIN_NAME": "Lương Trường Khôi",
-    "keyRent": "Lunar",
-    "FACEBOOK_ADMIN": "",
-    "PREFIX": ".",
+    "BOTNAME": "LiLy┄𝐔𝐧𝐨",
+    "AMDIN_NAME": "Cake CounTry",
+    "keyRent": "Cake",
+    "FACEBOOK_ADMIN": "https://www.facebook.com/share/61561101096216",
+    "PREFIX": "^B&",
     "box_admin": "",
     "ADMINBOT": [
-        "",
+        "61561101096216",
         ""
     ],
     "NDH": [
-        "",
+        "61561101096216",
         ""
     ],
     "autoCleanCache": {
